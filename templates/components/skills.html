@@ -1,32 +1,359 @@
-<section id="skills" class="section">
+<!-- 1. Font Link (Optional: Remove if you already have these fonts globally) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
-<h2>Skills</h2>
+<!-- 2. HTML Structure -->
+<section id="skills" class="skills-section">
+    
+    <div class="skills-header">
+        <h2>Technical Capabilities</h2>
+        <div class="skills-stats">
+            <div class="stat-pill">
+                <i class="fas fa-layer-group"></i> 12+ Techs
+            </div>
+            <div class="stat-pill">
+                <i class="fas fa-code-branch"></i> 5+ Years
+            </div>
+        </div>
+    </div>
 
-<div class="skill-bar">
+    <div class="skills-grid">
 
-<span>Python</span>
-<div class="bar">
-<div class="progress python"></div>
-</div>
+        <!-- Skill Card 1 -->
+        <div class="skill-card">
+            <div class="card-header">
+                <div class="icon-box">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="info">
+                    <h3>Python Core</h3>
+                    <span class="level">Advanced</span>
+                </div>
+            </div>
+            
+            <div class="progress-wrapper">
+                <div class="progress-label">
+                    <span>Proficiency</span>
+                    <span>95%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" data-width="95%"></div>
+                </div>
+            </div>
 
-</div>
+            <div class="tags-container">
+                <span class="tag">Django</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Pandas</span>
+            </div>
+        </div>
 
-<div class="skill-bar">
+        <!-- Skill Card 2 -->
+        <div class="skill-card">
+            <div class="card-header">
+                <div class="icon-box">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="info">
+                    <h3>Flask API</h3>
+                    <span class="level">Intermediate</span>
+                </div>
+            </div>
+            
+            <div class="progress-wrapper">
+                <div class="progress-label">
+                    <span>Proficiency</span>
+                    <span>85%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" data-width="85%"></div>
+                </div>
+            </div>
 
-<span>Flask</span>
-<div class="bar">
-<div class="progress flask"></div>
-</div>
+            <div class="tags-container">
+                <span class="tag">REST</span>
+                <span class="tag">SQLAlchemy</span>
+                <span class="tag">Docker</span>
+            </div>
+        </div>
 
-</div>
+        <!-- Skill Card 3 -->
+        <div class="skill-card">
+            <div class="card-header">
+                <div class="icon-box">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="info">
+                    <h3>Machine Learning</h3>
+                    <span class="level">Advanced</span>
+                </div>
+            </div>
+            
+            <div class="progress-wrapper">
+                <div class="progress-label">
+                    <span>Proficiency</span>
+                    <span>80%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" data-width="80%"></div>
+                </div>
+            </div>
 
-<div class="skill-bar">
+            <div class="tags-container">
+                <span class="tag">TensorFlow</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Scikit</span>
+            </div>
+        </div>
 
-<span>Machine Learning</span>
-<div class="bar">
-<div class="progress ml"></div>
-</div>
-
-</div>
-
+    </div>
 </section>
+
+<!-- 3. Scoped CSS -->
+<style>
+    /* Scoped Variables to avoid global conflict */
+    #skills {
+        --bg-surface: #1e293b;
+        --bg-surface-hover: #26334d;
+        --border-color: rgba(255, 255, 255, 0.08);
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --accent-gradient: linear-gradient(135deg, #6366f1 0%, #00f3ff 100%);
+        --glow: 0 0 20px rgba(99, 102, 241, 0.15);
+        --font-main: 'Inter', sans-serif;
+        --font-display: 'Orbitron', sans-serif;
+        
+        /* Container Setup */
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    /* Header */
+    #skills .skills-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 50px;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    #skills .skills-header h2 {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        margin: 0;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+    }
+
+    #skills .skills-stats {
+        display: flex;
+        gap: 15px;
+    }
+
+    #skills .stat-pill {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-main);
+    }
+
+    #skills .stat-pill i {
+        color: #00f3ff;
+    }
+
+    /* Grid */
+    #skills .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    /* Card */
+    #skills .skill-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 24px;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    #skills .skill-card:hover {
+        transform: translateY(-4px);
+        background: var(--bg-surface-hover);
+        border-color: rgba(99, 102, 241, 0.3);
+        box-shadow: var(--glow);
+    }
+
+    #skills .skill-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-gradient);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    #skills .skill-card:hover::before {
+        opacity: 1;
+    }
+
+    /* Card Header */
+    #skills .card-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    #skills .icon-box {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: #fff;
+        border: 1px solid var(--border-color);
+    }
+
+    #skills .info h3 {
+        font-family: var(--font-main);
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0;
+        color: var(--text-primary);
+    }
+
+    #skills .info .level {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        font-weight: 400;
+    }
+
+    /* Progress Bar */
+    #skills .progress-wrapper {
+        width: 100%;
+    }
+
+    #skills .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-bottom: 6px;
+        font-family: var(--font-main);
+    }
+
+    #skills .progress-track {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    #skills .progress-fill {
+        height: 100%;
+        border-radius: 10px;
+        background: var(--accent-gradient);
+        width: 0;
+        transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        position: relative;
+    }
+
+    #skills .progress-fill::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+        );
+        transform: translateX(-100%);
+        animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+        100% { transform: translateX(100%); }
+    }
+
+    /* Tags */
+    #skills .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: auto;
+    }
+
+    #skills .tag {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text-secondary);
+        border: 1px solid transparent;
+        transition: all 0.2s;
+        font-family: var(--font-main);
+    }
+
+    #skills .skill-card:hover .tag {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+    }
+
+    /* Icon Colors */
+    #skills .fa-python { color: #3776AB; }
+    #skills .fa-server { color: #00f3ff; }
+    #skills .fa-brain { color: #00f3ff; }
+</style>
+
+<!-- 4. Scoped JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Only target elements inside #skills
+        const bars = document.querySelectorAll('#skills .progress-fill');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const width = bar.getAttribute('data-width');
+                    
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 200);
+                    
+                    observer.unobserve(bar);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        bars.forEach(bar => observer.observe(bar));
+    });
+</script>
