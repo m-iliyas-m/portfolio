@@ -1,40 +1,56 @@
-const lines = [
-"scraper.run()",
-"Collecting data...",
-"Processing dataset...",
-"Automation ready ✔"
-]
+export function Terminal({
+  target,
+  title = "terminal",
+  content = "",
+  typing = false,
+  speed = 30
+}) {
 
-const terminal = document.getElementById("terminal-text")
+  const container = document.querySelector(target)
+  if (!container) return
 
-let line = 0
-let char = 0
+  const terminal = document.createElement("div")
+  terminal.className = "terminal"
 
-function type(){
+  terminal.innerHTML = `
+    <div class="terminal-header">
 
-if(!terminal) return
+      <div class="terminal-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
 
-if(line < lines.length){
+      <span class="terminal-title">${title}</span>
 
-if(char < lines[line].length){
+    </div>
 
-terminal.innerHTML += lines[line].charAt(char)
-char++
+    <div class="terminal-body">
+      <pre class="terminal-content"></pre>
+    </div>
+  `
 
-setTimeout(type,40)
+  container.innerHTML = ""
+  container.appendChild(terminal)
 
-}else{
+  const contentBox = terminal.querySelector(".terminal-content")
 
-terminal.innerHTML += "<br>$ "
-line++
-char = 0
+  // NORMAL MODE
+  if (!typing) {
+    contentBox.innerHTML = content
+    return
+  }
 
-setTimeout(type,400)
+  // TYPING MODE
+  let i = 0
 
+  function type() {
+    if (i < content.length) {
+      contentBox.innerHTML += content.charAt(i)
+      i++
+      setTimeout(type, speed)
+    }
+  }
+
+  type()
 }
-
-}
-
-}
-
-type()
