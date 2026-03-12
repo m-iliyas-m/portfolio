@@ -1,8 +1,8 @@
-const textLines = [
-"$ python analyze.py",
-"Running automation...",
-"Processing data...",
-"AI ready"
+const lines = [
+"scraper.run()",
+"Collecting data...",
+"Processing dataset...",
+"Automation ready ✔"
 ]
 
 const terminal = document.getElementById("terminal-text")
@@ -12,20 +12,22 @@ let char = 0
 
 function type(){
 
-if(line < textLines.length){
+if(!terminal) return
 
-if(char < textLines[line].length){
+if(line < lines.length){
 
-terminal.innerHTML += textLines[line].charAt(char)
+if(char < lines[line].length){
+
+terminal.innerHTML += lines[line].charAt(char)
 char++
 
 setTimeout(type,40)
 
 }else{
 
-terminal.innerHTML += "<br>"
+terminal.innerHTML += "<br>$ "
 line++
-char=0
+char = 0
 
 setTimeout(type,400)
 
